@@ -26,8 +26,8 @@ The skill never invents facts. Where public data can't be found, it says so plai
 
 **Claude Code:**
 ```bash
-git clone https://github.com/<your-username>/enterprise-account-planner.git
-cp -r enterprise-account-planner/enterprise-account-planner ~/.claude/skills/
+git clone https://github.com/munjalvaidya-gif/enterpriseselling.git
+cp -r enterpriseselling/enterprise-account-planner ~/.claude/skills/
 ```
 
 **claude.ai:** upload the `enterprise-account-planner/` folder (or the packaged `.skill` file, if one is included in [Releases](../../releases)) via Settings → Capabilities → Skills.
