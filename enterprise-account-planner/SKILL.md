@@ -58,7 +58,7 @@ This is a hard rule, not a style preference: **never invent facts** — no inven
 
 ## Step 6 — Save and hand off
 
-Write the finished plan to `<company-slug>-account-plan.md` in the user's current working directory (ask if it's unclear where). Tell the user it's clean Markdown meant to paste directly into Notion or Google Docs, and that they can ask you to turn it into a PDF or slide deck next — that's a separate, on-request step, not something to do automatically.
+Save the finished plan as `<company-slug>-account-plan.md`. If there's an obvious working directory or project already in play, save it there without asking. Otherwise — including the common case of a brand-new session with no other context — explicitly ask the user where they'd like the file saved rather than guessing at a default location; don't treat "current working directory" as self-evident when it isn't. Tell the user it's clean Markdown meant to paste directly into Notion or Google Docs, and that they can ask you to turn it into a PDF or slide deck next — that's a separate, on-request step, not something to do automatically.
 
 ## Output format
 
