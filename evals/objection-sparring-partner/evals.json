@@ -1,0 +1,52 @@
+{
+  "skill_name": "objection-sparring-partner",
+  "methodology_note": "Unlike a single-shot document-generation skill, this tool's core behavior is a multi-turn interactive roleplay. Each eval below is graded via a self-play transcript: the same evaluator generates a full plausible session (persona side + seller side) under two conditions (with the skill's instructions loaded vs. a bare prompt referencing MEDDPICC/Force Management without the skill), then grades the resulting battlecard/transcript/scorecard against the assertions below. One run per condition per scenario (not repeated for variance, unlike a production benchmark) — see this skill's own README Testing section for the disclosed scope and results.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "jpmorgan-crowdstrike-procurement-security",
+      "prompt": "I sell CrowdStrike, targeting JPMorgan Chase, financial services vertical. We're in procurement/paper stage. Run an objection sparring session against their security/compliance lead — thorough, unhurried, has seen vendors try to rush this process before. Economic Buyer (CISO) is confirmed, Champion is a Security Engineering Manager who's been a strong advocate, Competition is an incumbent EDR vendor up for renewal.",
+      "expected_output": "A battlecard following the fixed template (deal snapshot with the given MEDDPICC state, 6-10 objections each tagged with a MEDDPICC element and a concrete Force Management move), followed by a live in-character session as the security/compliance persona that stays in character throughout, engineers objections toward Paper Process specifically (since that's the stage and persona), and ends with a scorecard following the fixed template.",
+      "files": [],
+      "expectations": [
+        "Battlecard is produced before any roleplay, follows the exact template structure (deal snapshot, MEDDPICC state, tagged objections with recommended Force Management move and a concrete example line, not abstract technique description)",
+        "Objections selected are stage-appropriate for procurement/paper (not discovery-stage objections like 'we're fine with what we have')",
+        "The persona stays in character for the full roleplay — does not break to explain techniques or coach mid-session",
+        "At least one objection is explicitly engineered against Paper Process, matching the persona and stage, not a generic security objection",
+        "The persona does not fold immediately on a mediocre answer, and does not become unrealistically hostile regardless of what the seller says — shows adaptive difficulty (tougher follow-up on a weak answer, more engagement on a strong one)",
+        "Debrief/scorecard is produced after the session, follows the exact template (What worked, What to improve, 8-element MEDDPICC table, Force Management technique usage, toughest objection, next-step talk track), and references specific moments from the transcript rather than generic sales coaching",
+        "No real named JPMorgan or CrowdStrike executive is invented and put in the roleplay's mouth — persona stays role-based ('security/compliance lead'), not a fabricated real person"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "marriott-salesforce-discovery-enduser",
+      "prompt": "I sell Salesforce, targeting Marriott International, hospitality vertical. We're at discovery stage. Run an objection sparring session against a skeptical Sales Ops end-user who's been through two painful CRM migrations before. No Economic Buyer confirmed yet, no Champion identified yet, Competition unknown.",
+      "expected_output": "A battlecard reflecting the largely-unconfirmed MEDDPICC state (Economic Buyer and Champion both marked assumed/unknown, appropriately hedged), discovery-stage objections focused on Identify Pain and change-fatigue rather than price or paper process, a live session staying in character as a jaded practitioner, and a grounded scorecard.",
+      "files": [],
+      "expectations": [
+        "Battlecard's MEDDPICC state section correctly reflects that Economic Buyer and Champion are unconfirmed/assumed rather than inventing confirmed detail not given in the prompt",
+        "Objections selected are discovery-stage and Identify-Pain/change-fatigue flavored (e.g. 'we're fine with what we have', past migration pain), not negotiation-stage price/procurement objections",
+        "The end-user persona's voice matches references/persona-library.md's description (informal, speaks from daily workflow experience, skeptical of 'you'll love it' claims) rather than reading like a generic executive",
+        "Roleplay stays in character for the full session",
+        "Scorecard's MEDDPICC table appropriately marks most elements as 'Left open' rather than fabricating advancement on elements the discovery-stage conversation wouldn't realistically resolve",
+        "Debrief references specific transcript moments, not generic advice"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "nike-workday-negotiation-economicbuyer",
+      "prompt": "I sell Workday, targeting Nike, retail/apparel vertical. We're in negotiation stage. Run an objection sparring session against their CFO, who controls budget and is skeptical of the price. Economic Buyer (this CFO) is confirmed, Champion is a strong HRIS Manager advocate, Competition is an unnamed alternative HR platform also in the mix.",
+      "expected_output": "A battlecard with negotiation-stage objections (price, competitor comparison, sign-off/approval pressure), a live session as a brief, impatient CFO persona per persona-library.md, showing adaptive escalation if the seller handles objections well (compound objections combining price + competition), and a scorecard that specifically evaluates Command of the Message and compelling-event usage since those are the techniques most relevant to a budget-focused Economic Buyer.",
+      "files": [],
+      "expectations": [
+        "Battlecard objections are negotiation-stage appropriate (price pushback, competitor comparison, approval-chain pressure), not discovery-stage objections",
+        "CFO persona voice is brief and impatient with jargon, asks for the number before the story, per persona-library.md — not a generic 'the customer' voice",
+        "At least one instance in the transcript of a compound objection (combining two MEDDPICC threads, e.g. price + competition together) as the adaptive-escalation mechanism, if the self-played seller responses are strong",
+        "Roleplay stays in character throughout, no mid-session coaching breaks",
+        "Scorecard explicitly assesses Command of the Message and compelling-event/cost-of-inaction usage (the two techniques most relevant to a budget-focused Economic Buyer objection), not just a generic pass over all three techniques",
+        "Debrief is grounded in specific quoted/paraphrased moments from this transcript"
+      ]
+    }
+  ]
+}
