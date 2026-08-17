@@ -1,0 +1,66 @@
+{
+  "skill_name": "enterprise-account-planner",
+  "evals": [
+    {
+      "id": 1,
+      "name": "delta-snowflake-airline",
+      "prompt": "Build me an account plan for Delta Air Lines — airline vertical, I sell Snowflake.",
+      "expected_output": "A single Markdown account plan following the fixed template (6 numbered sections + MEDDPICC snapshot + Sources), grounded in real, sourced research about Delta Air Lines, with Section 6 persona/entry-point guidance matching the data-platform category in the playbook.",
+      "files": [],
+      "expectations": [
+        "Output is a Markdown file containing all required headers: Customer Information, Funding & Financial Position (or equivalent financial section), Organization Structure & Recent Changes, Decision-Maker Signals, Tech Stack, Entry Points & Persona to Pitch, MEDDPICC Snapshot, Sources",
+        "MEDDPICC Snapshot explicitly names all 8 elements: Metrics, Economic Buyer, Decision Criteria, Decision Process, Paper Process, Identify Pain, Champion, Competition",
+        "Section 4 (Decision-Maker Signals) names at least one real, current or recent Delta Air Lines executive with a cited source",
+        "Section 2 reflects Delta being a public company (earnings/market cap/stock signals) rather than inventing VC-style funding rounds",
+        "Section 6 identifies an economic buyer/champion consistent with the data-platform persona mapping (e.g. CDO, CTO, VP Data/Analytics Engineering) rather than a generic or mismatched persona",
+        "A Sources section lists real, checkable citations (links or named publications)",
+        "No fabricated statistics presented as fact without a 'No public data found' or 'inferred' label where research came up short"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "marriott-salesforce-hospitality",
+      "prompt": "I'm a Salesforce seller going after Marriott International in hospitality. Put together an account plan.",
+      "expected_output": "A Markdown account plan following the fixed template, grounded in real research about Marriott International, with Section 6 matching the CRM/Sales Engagement persona mapping.",
+      "files": [],
+      "expectations": [
+        "Output is a Markdown file containing all required headers: Customer Information, Funding & Financial Position (or equivalent), Organization Structure & Recent Changes, Decision-Maker Signals, Tech Stack, Entry Points & Persona to Pitch, MEDDPICC Snapshot, Sources",
+        "MEDDPICC Snapshot explicitly names all 8 elements",
+        "Section 4 names at least one real, current or recent Marriott executive with a cited source",
+        "Section 6 identifies an economic buyer/champion consistent with the CRM/Sales Engagement persona mapping (e.g. CRO, VP Sales Ops, CMO) rather than a generic or mismatched persona",
+        "Section 5 (Tech Stack) calls out anything adjacent/competitive to Salesforce if found (e.g. another CRM), or explicitly notes none was found",
+        "A Sources section lists real, checkable citations"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "jpmorgan-crowdstrike-financial-services",
+      "prompt": "Put together a MEDDPICC account plan for CrowdStrike selling into JPMorgan Chase, financial services vertical.",
+      "expected_output": "A Markdown account plan following the fixed template, grounded in real research about JPMorgan Chase, with Section 6 matching the Cybersecurity persona mapping and MEDDPICC fields reflecting the heavy regulatory/paper process expected of a major bank.",
+      "files": [],
+      "expectations": [
+        "Output is a Markdown file containing all required headers including MEDDPICC Snapshot and Sources",
+        "MEDDPICC Snapshot explicitly names all 8 elements",
+        "Section 4 names at least one real, current or recent JPMorgan Chase executive with a cited source",
+        "Section 6 identifies an economic buyer/champion consistent with the Cybersecurity persona mapping (e.g. CISO, CIO)",
+        "Paper Process field reflects heavier-than-average review given JPMorgan is a large public, heavily regulated financial institution, and is labeled as inferred",
+        "A Sources section lists real, checkable citations"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "commbank-devin-fallback-persona",
+      "prompt": "I sell Devin (Cognition's AI coding agent) and I'm targeting Commonwealth Bank of Australia (CommBank). Can you build an account plan?",
+      "expected_output": "A Markdown account plan following the fixed template, grounded in real research about CommBank. Devin/Cognition is not a listed category in the platform-persona playbook, so this tests the fallback reasoning method — the plan should still produce a sensible engineering-function economic buyer/champion/trigger via the fallback's 3-step reasoning rather than skipping Section 6 or forcing a bad-fit category.",
+      "files": [],
+      "expectations": [
+        "Output is a Markdown file containing all required headers including MEDDPICC Snapshot and Sources",
+        "Section 6 is fully filled in (not skipped or marked as unavailable) despite Devin/Cognition not being a named category in the playbook",
+        "Section 6's persona is engineering-function-appropriate (e.g. CTO, VP Engineering as economic buyer; engineering manager/lead as champion) rather than a mismatched persona like CMO or CHRO",
+        "Section 4 names at least one real, current or recent CommBank executive with a cited source",
+        "The plan correctly identifies CommBank as an Australian financial institution and reflects that in vertical-relevant context (regulatory environment, market)",
+        "A Sources section lists real, checkable citations"
+      ]
+    }
+  ]
+}
